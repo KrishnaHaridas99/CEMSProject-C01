@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Admin.AdminSignInController">
+    <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="600.0" prefWidth="900.0">
+        <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="-1.0" opacity="0.56" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../Images/bgImg.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="266.0" layoutX="230.0" layoutY="148.0" opacity="0.07" stroke="#b29464" width="438.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                               <Color red="0.7473683953285217" green="0.28510722517967224" blue="0.33903768658638" opacity="0.9599999785423279" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                               <Color red="0.4300000071525574" green="0.13330000638961792" blue="0.13330000638961792" opacity="0.8767123818397522" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <effect>
+            <BoxBlur />
+            </effect>
+        </Rectangle>
+        <Label layoutX="334.0" layoutY="52.0" text="Admin Sign In">
+            <font>
+               <Font name="Comic Sans MS" size="35.0" />
+            </font>
+        </Label>
+        <Label layoutX="267.0" layoutY="199.0" text="Username">
+            <font>
+               <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtAdminUser" layoutX="415.0" layoutY="199.0" promptText="Enter Username">
+            <font>
+               <Font name="Calibri" size="20.0" />
+            </font>
+        </TextField>
+        <Label layoutX="267.0" layoutY="257.0" text="Password">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <PasswordField fx:id="txtpassword" layoutX="416.0" layoutY="257.0" promptText="Enter Password">
+            <font>
+               <Font name="Calibri" size="20.0" />
+            </font>
+        </PasswordField>
+        <JFXButton buttonType="RAISED" fx:id="btnAdminSignIn" ripplerFill="#858585" layoutX="416.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnAdminSignInClick" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Login">
+            <font>
+               <Font name="Calibri" size="20.0" />
+            </font>
+            <effect>
+               <Blend />
+            </effect>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" fx:id="btnAdminSignCancel" ripplerFill="#858585" layoutX="494.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnAdminSignCancelClick" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
+            <font>
+               <Font name="Calibri" size="20.0" />
+            </font>
+        </JFXButton>
+    </AnchorPane>
+</AnchorPane>

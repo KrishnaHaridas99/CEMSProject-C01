@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Student.StudentMenuController">
+    <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="600.0" prefWidth="900.0">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="447.0" layoutX="51.0" layoutY="119.0" opacity="0.48" stroke="#b29464" width="805.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect></Rectangle>
+        <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="-1.0" opacity="0.56" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../Images/bgImg.jpg" />
+            </image>
+        </ImageView>
+        <Label fx:id="lblWelcome" layoutX="294.0" layoutY="52.0" text="Welcome: Student ">
+            <font>
+                <Font name="Comic Sans MS" size="35.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnStudentSignOut" buttonType="RAISED" layoutX="792.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnStudentSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </JFXButton>
+
+        <TableView layoutX="76.0" layoutY="172.0" prefHeight="375.0" prefWidth="762.0">
+
+        </TableView>
+      <Label layoutX="76.0" layoutY="131.0" text="Upcoming Events">
+         <font>
+            <Font name="Calibri" size="25.0" />
+         </font>
+      </Label>
+
+    </AnchorPane>
+</AnchorPane>
