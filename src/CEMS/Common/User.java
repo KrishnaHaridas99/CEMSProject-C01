@@ -7,7 +7,7 @@ public class User {
     protected String UserDOB;
     protected String UserEmail;
     protected String UserPh;
-    protected String UserType;
+    protected int UserType;
     protected String UserName;
     protected String Password;
 
@@ -72,11 +72,11 @@ public class User {
         this.UserPh = UserPh;
     }
 
-    public String getUserType()
+    public int getUserType()
     {
         return UserType;
     }
-    public void setUserType(String UserType)
+    public void setUserType(int UserType)
     {
         this.UserType = UserType;
     }

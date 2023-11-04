@@ -1,6 +1,9 @@
 package CEMS.Common;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -52,6 +55,14 @@ public class Globals {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void WindowCloseAndShow(Parent root, Stage window, String showTitle){
+        window.close();
+        window = new Stage();
+        window.setScene(new Scene(root, 900, 600));
+        window.setTitle(showTitle);
+        window.show();
     }
 
     public static void ShowInfo(String title, String message) {

@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -49,6 +48,7 @@ public class AdminSignInController {
         User usr = new User();
         usr.setUserName(txtAdminUser.getText());
         usr.setPassword(txtpassword.getText());
+        usr.setUserType(Globals.UserType.ADMIN.ordinal() + 1);
 
         LoggedInUser.checkLoginUser(usr);
 
@@ -67,17 +67,12 @@ public class AdminSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminMenu.fxml"));
         Parent root = loader.load();
+        Stage window = (Stage) btnAdminSignCancel.getScene().getWindow();
 
         AdminMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
 
-        Stage window = (Stage) btnAdminSignCancel.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Admin Portal");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Admin Portal");
     }
 
     public void goToWelcomePage() throws IOException {
@@ -85,15 +80,9 @@ public class AdminSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../WelcomePage.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnAdminSignCancel.getScene().getWindow();
         WelcomePageController controller = loader.getController();
 
-        Stage window = (Stage) btnAdminSignCancel.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Welcome");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Welcome");
     }
 }

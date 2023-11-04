@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -37,6 +36,7 @@ public class StudentSignInController {
         User usr = new User();
         usr.setUserName(txtStudUser.getText());
         usr.setPassword(txtpassword.getText());
+        usr.setUserType(Globals.UserType.STUDENT.ordinal() + 1);
 
         LoggedInUser.checkLoginUser(usr);
 
@@ -55,17 +55,11 @@ public class StudentSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentMenu.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnStudSignIn.getScene().getWindow();
         StudentMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
 
-        Stage window = (Stage) btnStudSignIn.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Student Portal");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Student Portal");
     }
 
     public void btnStudSignCancelClick(ActionEvent actionEvent) {
@@ -84,15 +78,9 @@ public class StudentSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../WelcomePage.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnStudSignCancel.getScene().getWindow();
         WelcomePageController controller = loader.getController();
 
-        Stage window = (Stage) btnStudSignCancel.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Welcome");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Welcome");
     }
 }

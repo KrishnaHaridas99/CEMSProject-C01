@@ -3,13 +3,11 @@ package CEMS.Members;
 import CEMS.Common.Globals;
 import CEMS.Common.LoggedInUser;
 import CEMS.Common.User;
-import CEMS.Student.StudentMenuController;
 import CEMS.WelcomePageController;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -38,6 +36,7 @@ public class MemberSignInController {
         User usr = new User();
         usr.setUserName(txtMemberUser.getText());
         usr.setPassword(txtpassword.getText());
+        usr.setUserType(Globals.UserType.MEMBER.ordinal() + 1);
 
         LoggedInUser.checkLoginUser(usr);
 
@@ -56,17 +55,11 @@ public class MemberSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MemberMenu.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnMemberSignIn.getScene().getWindow();
         MemberMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
 
-        Stage window = (Stage) btnMemberSignIn.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Member Portal");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Member Portal");
     }
 
     public void btnMemberSignCancelClick(ActionEvent actionEvent) {
@@ -85,15 +78,9 @@ public class MemberSignInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../WelcomePage.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnMemberSignCancel.getScene().getWindow();
         WelcomePageController controller = loader.getController();
 
-        Stage window = (Stage) btnMemberSignCancel.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Welcome");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Welcome");
     }
 }

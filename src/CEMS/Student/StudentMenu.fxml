@@ -19,7 +19,7 @@
                 <Image url="@../Images/bgImg.jpg" />
             </image>
         </ImageView>
-        <Label fx:id="lblWelcome" layoutX="294.0" layoutY="52.0" text="Welcome: Student ">
+        <Label fx:id="lblWelcome" layoutX="294.0" layoutY="52.0" text="Welcome: ">
             <font>
                 <Font name="Comic Sans MS" size="35.0" />
             </font>

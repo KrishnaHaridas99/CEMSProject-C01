@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -65,16 +64,10 @@ public class CreateClubController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Admin/AdminMenu.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnClubCancel.getScene().getWindow();
         AdminMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
 
-        Stage window = (Stage) btnClubCancel.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Admin Portal");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Admin Portal");
     }
 }

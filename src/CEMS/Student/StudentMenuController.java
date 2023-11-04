@@ -37,15 +37,9 @@ public class StudentMenuController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../WelcomePage.fxml"));
         Parent root = loader.load();
-
+        Stage window = (Stage) btnStudentSignOut.getScene().getWindow();
         WelcomePageController controller = loader.getController();
 
-        Stage window = (Stage) btnStudentSignOut.getScene().getWindow();
-        window.close();
-
-        window = new Stage();
-        window.setScene(new Scene(root, 900, 600));
-        window.setTitle("CEMS - Welcome");
-        window.show();
+        Globals.WindowCloseAndShow(root, window, "CEMS - Welcome");
     }
 }
