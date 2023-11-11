@@ -30,7 +30,7 @@ public class StudentSignInController {
         }
     }
 
-    public void studentLoginCheck() throws IOException {
+    public void studentLoginCheck() throws Exception {
         System.out.println("Checking student sign in");
 
         User usr = new User();
@@ -50,14 +50,13 @@ public class StudentSignInController {
         }
     }
 
-    public void goTOStudentMenuPage() throws IOException {
-        System.out.println("Loading Student menu window");
-
+    public void goTOStudentMenuPage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentMenu.fxml"));
         Parent root = loader.load();
         Stage window = (Stage) btnStudSignIn.getScene().getWindow();
         StudentMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
+        controller.setEventTable();
 
         Globals.WindowCloseAndShow(root, window, "CEMS - Student Portal");
     }

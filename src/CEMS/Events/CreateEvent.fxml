@@ -25,56 +25,48 @@
             </font>
         </Label>
 
-        <Label layoutX="165.0" layoutY="127.0" text="Select Club: ">
+        <Label layoutX="184.0" layoutY="137.0" text="Event Name: ">
             <font>
                 <Font name="Calibri" size="30.0" />
             </font>
         </Label>
-        <ComboBox fx:id="ddlClub" layoutX="416.0" layoutY="131.0" prefHeight="26.0" prefWidth="238.0" promptText="Select Club">
-        </ComboBox>
-
-        <Label layoutX="166.0" layoutY="173.0" text="Event Name: ">
-            <font>
-                <Font name="Calibri" size="30.0" />
-            </font>
-        </Label>
-        <TextField fx:id="txtEventName" layoutX="416.0" layoutY="173.0" prefHeight="36.0" prefWidth="176.0" promptText="Event Name">
+        <TextField fx:id="txtEventName" layoutX="429.0" layoutY="137.0" prefHeight="36.0" prefWidth="238.0" promptText="Event Name">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
         </TextField>
 
-        <Label layoutX="165.0" layoutY="217.0" text="Event Start Date: ">
+        <Label layoutX="184.0" layoutY="185.0" text="Event Start Date: ">
             <font>
                 <Font name="Calibri" size="30.0" />
             </font>
         </Label>
-        <DatePicker fx:id="dtEventStart" layoutX="416.0" layoutY="221.0" prefHeight="26.0" prefWidth="238.0" promptText="Event Start Date" />
+        <DatePicker fx:id="dtEventStart" layoutX="429.0" layoutY="185.0" prefHeight="35.0" prefWidth="238.0" promptText="Event Start Date" />
 
-        <Label layoutX="165.0" layoutY="264.0" text="Event End Date: ">
+        <Label layoutX="184.0" layoutY="242.0" text="Event End Date: ">
             <font>
                 <Font name="Calibri" size="30.0" />
             </font>
         </Label>
-        <DatePicker fx:id="dtEventEnd" layoutX="416.0" layoutY="268.0" prefHeight="26.0" prefWidth="238.0" promptText="Event End Date" />
+        <DatePicker fx:id="dtEventEnd" layoutX="429.0" layoutY="242.0" prefHeight="35.0" prefWidth="238.0" promptText="Event End Date" />
 
-        <Label layoutX="166.0" layoutY="311.0" text="Event Venue: ">
+        <Label layoutX="184.0" layoutY="300.0" text="Event Venue: ">
             <font>
                 <Font name="Calibri" size="30.0" />
             </font>
         </Label>
-        <TextField fx:id="txtEventVenue" layoutX="416.0" layoutY="311.0" prefHeight="36.0" prefWidth="176.0" promptText="Event Venue">
+        <TextField fx:id="txtEventVenue" layoutX="429.0" layoutY="300.0" prefHeight="36.0" prefWidth="238.0" promptText="Event Venue">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
         </TextField>
 
-        <Label layoutX="166.0" layoutY="358.0" text="Event Description:">
+        <Label layoutX="184.0" layoutY="357.0" text="Event Description:">
             <font>
                 <Font name="Calibri" size="30.0" />
             </font>
         </Label>
-        <TextArea fx:id="txtEventDesc" layoutX="416.0" layoutY="366.0" prefHeight="94.0" prefWidth="288.0" promptText="Enter Event description">
+        <TextArea fx:id="txtEventDesc" layoutX="429.0" layoutY="357.0" prefHeight="94.0" prefWidth="288.0" promptText="Enter Event description">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>

@@ -3,6 +3,8 @@ package CEMS.Common;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -77,5 +79,22 @@ public class Globals {
         alert.setTitle(errorTitle);
         alert.setHeaderText(errMessage);
         alert.showAndWait();
+    }
+
+    public static boolean showConfirmationDialog(String Title, String HeaderText, String Text) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(Title);
+        alert.setHeaderText(HeaderText);
+        alert.setContentText(Text);
+
+        // Add custom buttons to the confirmation dialog
+        ButtonType yesButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(yesButton, noButton);
+
+        // Show the dialog and wait for the user's response
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+
+        return result == yesButton;
     }
 }

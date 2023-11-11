@@ -48,7 +48,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnEventReport" buttonType="RAISED" layoutX="290.0" layoutY="280.0" onAction="#btnEventReportClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Event Report">
+        <JFXButton fx:id="btnEventReport" buttonType="RAISED" layoutX="290.0" layoutY="332.0" onAction="#btnEventReportClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Event Report">
             <font>
                 <Font size="15.0" />
             </font>
@@ -57,7 +57,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnMemberEvent" buttonType="RAISED" layoutX="290.0" layoutY="334.0" onAction="#btnMemberEventClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View Event Member">
+        <JFXButton fx:id="btnMemberEvent" buttonType="RAISED" layoutX="290.0" layoutY="280.0" onAction="#btnMemberClubEventClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View Club Events">
             <font>
                 <Font size="15.0" />
             </font>

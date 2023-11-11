@@ -30,14 +30,14 @@
             </font>
         </JFXButton>
 
-        <TableView layoutX="76.0" layoutY="172.0" prefHeight="375.0" prefWidth="762.0">
+        <Label layoutX="76.0" layoutY="131.0" text="Upcoming Events">
+           <font>
+              <Font name="Calibri" size="25.0" />
+           </font>
+        </Label>
 
+        <TableView fx:id="tblEventList" layoutX="76.0" layoutY="173.0" prefHeight="339.0" prefWidth="754.0" stylesheets="@../CSS/TableView.css">
         </TableView>
-      <Label layoutX="76.0" layoutY="131.0" text="Upcoming Events">
-         <font>
-            <Font name="Calibri" size="25.0" />
-         </font>
-      </Label>
 
     </AnchorPane>
 </AnchorPane>

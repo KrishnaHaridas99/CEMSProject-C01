@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Members.EditMemberDetailsController">
+    <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="600.0" prefWidth="900.0">
+        <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="-1.0" opacity="0.56" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../Images/bgImg.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="405.0" layoutX="106.0" layoutY="109.0" opacity="0.48" stroke="#b29464" width="714.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect></Rectangle>
+        <Label layoutX="266.0" layoutY="53.0" text="Edit Member Details">
+            <font>
+                <Font name="Comic Sans MS" size="33.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="321.0" layoutY="109.0" text="Member ID: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblMemberID" layoutX="476.0" layoutY="109.0" text="1">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="221.0" layoutY="163.0" text="Member Name: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtMemFirstName" layoutX="447.0" layoutY="163.0" prefHeight="36.0" prefWidth="176.0" promptText="First Name">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="txtMemLastName" layoutX="629.0" layoutY="163.0" prefHeight="36.0" prefWidth="176.0" promptText="Last Name">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="221.0" layoutY="213.0" text="Member DOB: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtMemDOB" layoutX="447.0" layoutY="213.0" prefHeight="35.0" prefWidth="238.0" promptText="Date of birth" />
+
+        <Label layoutX="221.0" layoutY="264.0" text="Member Phone: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtMemPhone" layoutX="447.0" layoutY="264.0" promptText="Member Phone #">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="221.0" layoutY="311.0" text="Member Email: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtMemEmail" layoutX="448.0" layoutY="311.0" promptText="Member Email ID">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="221.0" layoutY="363.0" text="Member Club: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="ddlMemberClub" layoutX="447.0" layoutY="363.0" prefHeight="36.0" prefWidth="238.0" promptText="Select Club">
+        </ComboBox>
+
+        <JFXButton fx:id="btnSaveClubMember" buttonType="RAISED" layoutX="348.0" layoutY="459.0" mnemonicParsing="false" onAction="#btnSaveMemberClick" prefHeight="36.0" prefWidth="100.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+            <effect>
+                <Blend />
+            </effect>
+        </JFXButton>
+        <JFXButton fx:id="btnMemberCancel" buttonType="RAISED" layoutX="462.0" layoutY="459.0" mnemonicParsing="false" onAction="#btnMemberCancelClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </JFXButton>
+
+    </AnchorPane>
+</AnchorPane>

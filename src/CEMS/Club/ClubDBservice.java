@@ -18,9 +18,9 @@ public class ClubDBservice {
             PreparedStatement pstmt = null;
             String query = "INSERT INTO [dbo].[CEMS_Clubs] ([ClubName], [ClubDescription], [ClubPhone]) VALUES(?,?,?)";
             pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, objClub.ClubName);
-            pstmt.setString(2, objClub.ClubDescription);
-            pstmt.setString(3, objClub.ClubPhone);
+            pstmt.setString(1, objClub.getClubName());
+            pstmt.setString(2, objClub.getClubDescription());
+            pstmt.setString(3, objClub.getClubPhone());
 
             pstmt.executeUpdate();
 
@@ -34,43 +34,94 @@ public class ClubDBservice {
         return isSuccess;
     }
 
-    public List<Club> getClubs(){
+    public List<Club> getClubs() throws Exception{
         List<Club> clusList = new ArrayList<>();
-        try
+        Connection conn = Globals.getConnection();
+        if (conn != null)
         {
-            Connection conn = Globals.getConnection();
-            if (conn != null)
-            {
-                System.out.println("Database - Get all the clubs");
+            System.out.println("Database - Get all the clubs");
 
-                String query = "EXEC CEMS_SP_GetAllClubs";
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(query);
+            String query = "EXEC CEMS_SP_GetAllClubs";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
 
-                Club objclub;
-                while (rs.next()) {
-                    objclub = new Club();
-                    objclub.ClubID = rs.getInt("ClubID");
-                    objclub.ClubName = rs.getString("ClubName");
-                    objclub.ClubDescription = rs.getString("ClubDescription");
-                    objclub.ClubPhone = rs.getString("ClubPhone");
+            Club objclub;
+            while (rs.next()) {
+                objclub = new Club();
+                objclub.setClubID(rs.getInt("ClubID"));
+                objclub.setClubName(rs.getString("ClubName"));
+                objclub.setClubDescription(rs.getString("ClubDescription"));
+                objclub.setClubPhone(rs.getString("ClubPhone"));
 
-                    clusList.add(objclub);
-                }
+                clusList.add(objclub);
             }
-            else
-            {
-                System.out.println("Failed to make connection!");
-            }
-        }
-        catch (SQLException e)
-        {
-            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
         }
         return clusList;
+    }
+
+    public Club getClubDetails(int ClubID) throws Exception{
+        Club objclub = new Club();
+        Connection conn = Globals.getConnection();
+        if (conn != null)
+        {
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_GetClubByClubID ?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, ClubID);
+            ResultSet rs = cStmt.executeQuery(query);
+
+            while (rs.next()) {
+                objclub.setClubID(rs.getInt("ClubID"));
+                objclub.setClubName(rs.getString("ClubName"));
+                objclub.setClubDescription(rs.getString("ClubDescription"));
+                objclub.setClubPhone(rs.getString("ClubPhone"));
+            }
+        }
+        return objclub;
+    }
+
+    public boolean updateClubDetails(Club objClub) throws Exception{
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null){
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_UpdateClubByClubID ?,?,?,?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, objClub.getClubID());
+            cStmt.setString(2, objClub.getClubName());
+            cStmt.setString(3, objClub.getClubDescription());
+            cStmt.setString(4, objClub.getClubPhone());
+
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return  isSuccess;
+    }
+
+    public boolean deleteClub(int ClubID) throws Exception{
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null){
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_DeleteClubByClubID ?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, ClubID);
+
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return  isSuccess;
     }
 }

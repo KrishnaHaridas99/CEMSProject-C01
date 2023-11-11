@@ -34,19 +34,18 @@ public class CreateClubController {
         System.out.println("---Saving Club details---");
 
         Club club = new Club();
-        club.ClubName = txtClubName.getText();
-        club.ClubDescription = txtClubDesc.getText();
-        club.ClubPhone = txtClubPhone.getText();
+        club.setClubName(txtClubName.getText());
+        club.setClubDescription(txtClubDesc.getText());
+        club.setClubPhone(txtClubPhone.getText());
         boolean isClubSaved =  club.saveClub(club);
 
         if (isClubSaved){
-            Globals.ShowInfo("Save successfull", "Club: " + club.ClubName + " saved successfully");
+            Globals.ShowInfo("Save successfully", "Club: " + club.getClubName() + " saved successfully");
+            goTOAdminMenuPage();
         }
         else {
             Globals.ShowError("Error", "Error in saving Club details");
         }
-
-        goTOAdminMenuPage();
     }
 
     public void btnClubCancelClick(ActionEvent actionEvent) throws IOException {

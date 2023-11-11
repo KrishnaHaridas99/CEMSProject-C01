@@ -3,16 +3,18 @@ package CEMS.Members;
 import CEMS.Common.Globals;
 import CEMS.Common.LoggedInUser;
 import CEMS.Events.CreateEventController;
+import CEMS.Events.EventBudgetController;
+import CEMS.Events.ViewClubEventsController;
 import CEMS.WelcomePageController;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class MemberMenuController {
     public Label lblWelcome;
@@ -32,17 +34,31 @@ public class MemberMenuController {
         }
         catch (Exception e)
         {
-            Globals.ShowError("Error Event", e.getMessage());
+            Globals.ShowError("Error", e.getMessage());
         }
     }
 
     public void btnEventBudgetClick(ActionEvent actionEvent) {
+        try{
+            goToEventBudget();
+        }
+        catch (Exception e)
+        {
+            Globals.ShowError("Error Member", e.getMessage());
+        }
     }
 
     public void btnEventReportClick(ActionEvent actionEvent) {
     }
 
-    public void btnMemberEventClick(ActionEvent actionEvent) {
+    public void btnMemberClubEventClick(ActionEvent actionEvent) {
+        try{
+            goToEventList();
+        }
+        catch (Exception e)
+        {
+            Globals.ShowError("Error", e.getMessage());
+        }
     }
 
     public void btnMemberSignOutClick(ActionEvent actionEvent) {
@@ -74,8 +90,27 @@ public class MemberMenuController {
         Parent root = loader.load();
         Stage window = (Stage) btnCreateEvent.getScene().getWindow();
         CreateEventController controller = loader.getController();
-        controller.setClubCombo();
 
         Globals.WindowCloseAndShow(root, window, "CEMS - Create Event");
+    }
+
+    public void goToEventBudget() throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Events/EventBudget.fxml"));
+        Parent root = loader.load();
+        Stage window = (Stage) btnCreateEvent.getScene().getWindow();
+        EventBudgetController controller = loader.getController();
+        controller.setEventList();
+
+        Globals.WindowCloseAndShow(root, window, "CEMS - Event Budget");
+    }
+
+    public void goToEventList() throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Events/ViewClubEvents.fxml"));
+        Parent root = loader.load();
+        Stage window = (Stage) btnCreateEvent.getScene().getWindow();
+        ViewClubEventsController controller = loader.getController();
+        controller.setEventTable();
+
+        Globals.WindowCloseAndShow(root, window, "CEMS - Events");
     }
 }

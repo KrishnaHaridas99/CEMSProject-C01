@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -27,10 +26,10 @@ public class CreateMemberController {
     public JFXButton btnSaveClubMember;
     public JFXButton btnMemberCancel;
 
-    public void setClubCombo(){
+    public void setClubCombo() throws Exception {
         List<Club> clubs = new Club().getClubs();
         for (Club club: clubs) {
-            ddlMemberClub.getItems().add(club.ClubID + "_" + club.ClubName);
+            ddlMemberClub.getItems().add(club.getClubID() + "_" + club.getClubName());
         }
     }
 

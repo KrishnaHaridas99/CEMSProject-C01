@@ -57,7 +57,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewUptClub" buttonType="RAISED" layoutX="290.0" layoutY="300.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club">
+        <JFXButton fx:id="btnViewClub" onAction="#btnViewClubClick" buttonType="RAISED" layoutX="290.0" layoutY="300.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club">
             <font>
                 <Font size="15.0" />
             </font>
@@ -66,7 +66,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewUptClubMember" buttonType="RAISED" layoutX="290.0" layoutY="350.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club Member">
+        <JFXButton fx:id="btnViewClubMember" onAction="#btnViewClubMemberClick" buttonType="RAISED" layoutX="290.0" layoutY="350.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club Member">
             <font>
                 <Font size="15.0" />
             </font>
@@ -75,7 +75,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewUptStudent" buttonType="RAISED" layoutX="290.0" layoutY="401.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Students">
+        <JFXButton fx:id="btnViewStudent" onAction="#btnViewStudentClick" buttonType="RAISED" layoutX="290.0" layoutY="401.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Students">
             <font>
                 <Font size="15.0" />
             </font>

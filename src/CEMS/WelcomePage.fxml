@@ -28,9 +28,9 @@
                </color>
             </InnerShadow>
          </effect></Separator>
-      <Label layoutX="44.0" layoutY="252.0" prefHeight="40.0" prefWidth="309.0" text="Developed by Group #C01">
+      <Label layoutX="44.0" layoutY="252.0" prefHeight="40.0" prefWidth="309.0" text="Developed by">
          <font>
-            <Font name="SansSerif Regular" size="18.0" />
+            <Font name="SansSerif Bold Italic" size="24.0" />
          </font>
       </Label>
       <Label layoutX="470.0" layoutY="254.0" prefHeight="32.0" prefWidth="128.0" text="Login to">
@@ -62,29 +62,29 @@
             <DropShadow blurType="ONE_PASS_BOX" />
          </effect>
       </JFXButton>
-      <Label layoutX="44.0" layoutY="289.0" text="Developers">
+      <Label layoutX="51.0" layoutY="292.0" text="Group #C01">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="310.0" text="Swathi Marthala" textAlignment="CENTER">
+      <Label layoutX="73.0" layoutY="319.0" text="Swathi Marthala" textAlignment="CENTER">
          <font>
-            <Font name="Segoe Print" size="18.0" />
+            <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="340.0" text="Krishna Haridas" textAlignment="CENTER">
+      <Label layoutX="73.0" layoutY="349.0" text="Krishna Haridas" textAlignment="CENTER">
          <font>
-            <Font name="Segoe Print" size="18.0" />
+            <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="368.0" text="Navya Aare " textAlignment="CENTER">
+      <Label layoutX="73.0" layoutY="377.0" text="Navya Aare " textAlignment="CENTER">
          <font>
-            <Font name="Segoe Print" size="18.0" />
+            <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="395.0" text="Srija Sandhiri" textAlignment="CENTER">
+      <Label layoutX="73.0" layoutY="404.0" text="Srija Sandhiri" textAlignment="CENTER">
          <font>
-            <Font name="Segoe Print" size="18.0" />
+            <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
    </AnchorPane>

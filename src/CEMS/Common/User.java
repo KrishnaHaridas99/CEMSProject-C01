@@ -1,102 +1,97 @@
 package CEMS.Common;
 
 public class User {
-    protected int UserId;
-    protected String FirstName;
-    protected String Lastname;
-    protected String UserDOB;
-    protected String UserEmail;
-    protected String UserPh;
-    protected int UserType;
-    protected String UserName;
-    protected String Password;
-
-    public boolean isValidUser;
-
+    private int UserID;
     public int getUserID()
     {
-        return UserId;
+        return this.UserID;
     }
-    public void setUserID(int UserId)
+    public void setUserID(int UserID)
     {
-        this.UserId = UserId;
+        this.UserID = UserID;
     }
 
+    private String FirstName;
     public String getFirstName()
     {
-        return FirstName;
+        return this.FirstName;
     }
     public void setFirstName(String FirstName)
     {
         this.FirstName = FirstName;
     }
 
+    private String LastName;
     public String getLastName()
     {
-        return Lastname;
+        return this.LastName;
     }
     public void setLastName(String Lastname)
     {
-        this.Lastname = Lastname;
+        this.LastName = Lastname;
     }
 
-    public String getName()
-    {
-        return FirstName + " " + Lastname;
-    }
+     public String getName() { return FirstName + " " + LastName; }
 
+    private String UserDOB;
     public String getUserDOB()
     {
-        return UserDOB;
+        return this.UserDOB;
     }
     public void setUserDOB(String UserDOB)
     {
         this.UserDOB = UserDOB;
     }
 
+    private String UserEmail;
     public String getUserEmail()
     {
-        return UserEmail;
+        return this.UserEmail;
     }
     public void setUserEmail(String UserEmail)
     {
         this.UserEmail = UserEmail;
     }
 
+    private String UserPh;
     public String getUserPh()
     {
-        return UserPh;
+        return this.UserPh;
     }
     public void setUserPh(String UserPh)
     {
         this.UserPh = UserPh;
     }
 
+    private int UserType;
     public int getUserType()
     {
-        return UserType;
+        return this.UserType;
     }
     public void setUserType(int UserType)
     {
         this.UserType = UserType;
     }
 
+    private String UserName;
     public String getUserName()
     {
-        return UserName;
+        return this.UserName;
     }
     public void setUserName(String UserName)
     {
         this.UserName = UserName;
     }
 
+    private String Password;
     public String getPassword()
     {
-        return Password;
+        return this.Password;
     }
     public void setPassword(String Password)
     {
         this.Password = Password;
     }
 
+    public boolean isValidUser;
 }
