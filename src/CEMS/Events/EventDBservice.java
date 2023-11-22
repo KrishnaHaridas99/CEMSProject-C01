@@ -42,6 +42,34 @@ public class EventDBservice {
         return isSuccess;
     }
 
+    public boolean updateEvent(Event eventObj) throws SQLException {
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null)
+        {
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_UpdateEventDetails ?,?,?,?,?,?,?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, eventObj.getEventID());
+            cStmt.setString(2, eventObj.getEventName());
+            cStmt.setString(3, eventObj.getEventStartDate());
+            cStmt.setString(4, eventObj.getEventEndDate());
+            cStmt.setString(5, eventObj.getEventDesc());
+            cStmt.setString(6, eventObj.getEventVenue());
+            cStmt.setString(7, eventObj.getEventCreatedBy());
+            ResultSet rs = cStmt.executeQuery();
+
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return isSuccess;
+    }
+
     public boolean saveEventBudget(EventBudget budgetObj) throws Exception{
         boolean isSuccess = false;
         Connection conn = Globals.getConnection();
@@ -70,6 +98,30 @@ public class EventDBservice {
         return  isSuccess;
     }
 
+    public boolean updateEventBudget(EventBudget budgetObj) throws Exception{
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null){
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_UpdateEventBudget ?,?,?,?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, budgetObj.getEventID());
+            cStmt.setInt(2, budgetObj.getBudgetID());
+            cStmt.setString(3, budgetObj.getExpenseName());
+            cStmt.setFloat(4, budgetObj.getCost());
+            ResultSet rs = cStmt.executeQuery();
+
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return  isSuccess;
+    }
+
     public List<Event> getEventsList(int memID) throws SQLException {
         List<Event> eventList = new ArrayList<>();
 
@@ -90,6 +142,7 @@ public class EventDBservice {
                 event.setEventStartDate(rs.getString("EventStartDate"));
                 event.setEventEndDate(rs.getString("EventEndDate"));
                 event.setEventVenue(rs.getString("EventVenue"));
+                event.setEventDesc(rs.getString("EventDesc"));
                 event.setEventCreatedBy(rs.getString("CreatedBy"));
                 event.setEventCreatedDate(rs.getString("CreatedDate"));
                 event.setEventClubID(rs.getString("ClubID"));
@@ -159,5 +212,50 @@ public class EventDBservice {
             conn.close();
         }
         return eventList;
+    }
+
+    public boolean deleteEvent(Event event) throws Exception {
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null)
+        {
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_DeleteEvent ?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, event.getEventID());
+
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return isSuccess;
+    }
+
+    public boolean deleteEventExpense(EventBudget budgetObj) throws Exception {
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null)
+        {
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_DeleteEventBudget ?,?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, budgetObj.getBudgetID());
+            cStmt.setInt(2, budgetObj.getEventID());
+
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return isSuccess;
     }
 }

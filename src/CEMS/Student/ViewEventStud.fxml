@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="552.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Student.ViewEventStudController">
+    <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="562.0" prefWidth="587.0">
+        <ImageView fitHeight="717.0" fitWidth="849.0" layoutX="-261.0" layoutY="-8.0" opacity="0.56" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.047265625000023" AnchorPane.leftAnchor="-261.0" AnchorPane.rightAnchor="-0.7999999999999545" AnchorPane.topAnchor="-8.0">
+            <image>
+                <Image url="@../Images/bgImg.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e7af61" height="152.0" layoutX="20.0" layoutY="396.0" opacity="0.48" stroke="#889e51fc" width="547.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect>
+        </Rectangle>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="378.0" layoutX="21.0" layoutY="7.0" opacity="0.48" stroke="#b29464" width="545.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect>
+        </Rectangle>
+        <Label fx:id="lblEventID" layoutX="49.0" layoutY="24.0" text="" visible="false"/>
+
+        <Label layoutX="49.0" layoutY="24.0" text="Event Name: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblEventName" layoutX="269.0" layoutY="24.0" text="Event Name: ">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="49.0" layoutY="76.0" text="Club Name: ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblClubName" layoutX="271.0" layoutY="76.0" prefHeight="35.0" prefWidth="163.0" text="Club Name: ">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="49.0" layoutY="126.0" text="Event Start Date ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblEventStart" layoutX="273.0" layoutY="126.0" text="Event start Date">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="49.0" layoutY="179.0" text="Event End Date ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblEventEnd" layoutX="273.0" layoutY="179.0" text="Event End Date">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="50.0" layoutY="228.0" text="Event Venue ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblEventVenue" layoutX="274.0" layoutY="228.0" text="Event Venue">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="49.0" layoutY="282.0" text="Event Desc ">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblEventDesc" alignment="TOP_LEFT" layoutX="273.0" layoutY="282.0" prefHeight="91.0" prefWidth="284.0" text="Event Desc" wrapText="true">
+            <font>
+                <Font name="Calibri Bold" size="30.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="92.0" layoutY="405.0" text="Are you attending the Event ?">
+            <font>
+                <Font name="Calibri" size="30.0" />
+            </font>
+        </Label>
+
+        <RadioButton fx:id="rbYes" layoutX="131.0" layoutY="444.0" text="Yes" userData="1">
+            <toggleGroup>
+                <ToggleGroup fx:id="tgIsAttending" />
+            </toggleGroup>
+         <font>
+            <Font name="Calibri" size="21.0" />
+         </font>
+        </RadioButton>
+        <RadioButton fx:id="rbNo" layoutX="229.0" layoutY="444.0" text="No" toggleGroup="$tgIsAttending" userData="2">
+         <font>
+            <Font name="Calibri" size="21.0" />
+         </font></RadioButton>
+        <RadioButton fx:id="rbNotSure" layoutX="313.0" layoutY="444.0" text="Not Sure" toggleGroup="$tgIsAttending" userData="0">
+         <font>
+            <Font name="Calibri" size="21.0" />
+         </font></RadioButton>
+
+        <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="227.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnSubmitClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Submit">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+        </JFXButton>
+    </AnchorPane>
+</AnchorPane>

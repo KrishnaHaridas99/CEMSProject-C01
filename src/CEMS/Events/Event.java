@@ -74,8 +74,18 @@ public class Event {
         this.EventCreatedDate = EventCreatedDate;
     }
 
+    private int StudentEventAttending;
+    public int getStudentEventAttending() { return this.StudentEventAttending; }
+    public void setStudentEventAttending(int StudentEventAttending){
+        this.StudentEventAttending = StudentEventAttending;
+    }
+
     public boolean saveEvent(Event eventObj) throws SQLException {
         return new EventDBservice().saveEvent(eventObj);
+    }
+
+    public boolean updateEvent(Event eventObj) throws SQLException {
+        return new EventDBservice().updateEvent(eventObj);
     }
 
     public List<Event> getEventsList(int memID) throws SQLException {
@@ -84,5 +94,9 @@ public class Event {
 
     public List<Event> getAllEventsList() throws SQLException{
         return new EventDBservice().getAllEventsList();
+    }
+
+    public boolean deleteEvent(Event event) throws Exception {
+        return new EventDBservice().deleteEvent(event);
     }
 }

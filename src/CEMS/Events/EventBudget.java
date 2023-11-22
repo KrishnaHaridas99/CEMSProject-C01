@@ -27,7 +27,15 @@ public class EventBudget extends Event{
         return new EventDBservice().saveEventBudget(eventBudget);
     }
 
+    public boolean updateEventBudget(EventBudget budgetObj) throws Exception{
+        return new EventDBservice().updateEventBudget(budgetObj);
+    }
+
     public List<EventBudget> getEventBudget(int EventID) throws SQLException {
         return new EventDBservice().getEventBudget(EventID);
+    }
+
+    public boolean deleteEventExpense(EventBudget budgetObj) throws Exception {
+        return new EventDBservice().deleteEventExpense(budgetObj);
     }
 }

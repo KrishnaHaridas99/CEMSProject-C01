@@ -86,6 +86,6 @@
             </font>
         </JFXButton>
 
-
+        <Label fx:id="lblEventID" visible="false" layoutX="91.0" layoutY="184.0" />
     </AnchorPane>
 </AnchorPane>

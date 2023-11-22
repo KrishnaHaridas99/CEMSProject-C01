@@ -1,6 +1,7 @@
 package CEMS.Student;
 
 import CEMS.Common.Globals;
+import CEMS.Events.Event;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -137,6 +138,62 @@ public class StudentDBservice {
             String query = "EXEC CEMS_SP_DeleteStudent ?";
             cStmt = conn.prepareCall(query);
             cStmt.setInt(1, StudID);
+
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(1) == 1) {
+                    isSuccess = true;
+                }
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return isSuccess;
+    }
+
+    public List<Event> getStudentEventsList(int studentID) throws SQLException {
+        List<Event> eventList = new ArrayList<>();
+
+        Connection conn = Globals.getConnection();
+        if (conn != null){
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_GetEventsWithStudentAttendance ?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, studentID);
+
+            ResultSet rs = cStmt.executeQuery();
+
+            Event event;
+            while (rs.next()) {
+                event = new Event();
+                event.setEventID(rs.getInt("EventID"));
+                event.setEventName(rs.getString("EventName"));
+                event.setEventStartDate(rs.getString("EventStartDate"));
+                event.setEventEndDate(rs.getString("EventEndDate"));
+                event.setEventVenue(rs.getString("EventVenue"));
+                event.setEventDesc(rs.getString("EventDesc"));
+                event.setEventClubID(rs.getString("ClubID"));
+                event.setEventClubName(rs.getString("ClubName"));
+                event.setStudentEventAttending(rs.getInt("IsAttending"));
+                eventList.add(event);
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return eventList;
+    }
+
+    public boolean insertStudentEventAttendacne(int StudID, Event event) throws SQLException {
+        boolean isSuccess = false;
+        Connection conn = Globals.getConnection();
+        if (conn != null)
+        {
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_InsertStudentEventAttendance ?, ?, ?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, StudID);
+            cStmt.setInt(2, event.getEventID());
+            cStmt.setInt(3, event.getStudentEventAttending());
 
             ResultSet rs = cStmt.executeQuery();
             while (rs.next()) {
