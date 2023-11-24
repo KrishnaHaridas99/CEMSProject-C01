@@ -43,17 +43,22 @@
             </font>
         </TextField>
 
-        <Label fx:id="lblEventID" visible="false" layoutX="91.0" layoutY="184.0" />
-        <Label fx:id="lblEventExpID" visible="false" layoutX="91.0" layoutY="184.0" />
-        <Label fx:id="lblEventSelected" visible="false" layoutX="91.0" layoutY="184.0" />
+        <Label fx:id="lblEventID" layoutX="91.0" layoutY="184.0" visible="false" />
+        <Label fx:id="lblEventExpID" layoutX="91.0" layoutY="184.0" visible="false" />
+        <Label fx:id="lblEventSelected" layoutX="91.0" layoutY="184.0" visible="false" />
 
-        <JFXButton fx:id="btnSaveExpense" buttonType="RAISED" layoutX="160.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnSaveExpenseClick" prefHeight="23.0" prefWidth="82.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
+        <JFXButton fx:id="btnSaveExpense" buttonType="RAISED" layoutX="160.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnSaveExpenseClick" prefHeight="46.0" prefWidth="117.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
             <effect>
                 <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconSave.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
     </AnchorPane>
 </AnchorPane>

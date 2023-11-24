@@ -72,20 +72,30 @@
             </font>
         </TextArea>
 
-        <JFXButton fx:id="btnSaveEvent" buttonType="RAISED" layoutX="329.0" layoutY="491.0" mnemonicParsing="false" onAction="#btnSaveEventClick" prefHeight="36.0" prefWidth="100.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
+        <JFXButton fx:id="btnSaveEvent" buttonType="RAISED" layoutX="329.0" layoutY="491.0" mnemonicParsing="false" onAction="#btnSaveEventClick" prefHeight="45.0" prefWidth="107.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
             <effect>
                 <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconSave.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
         <JFXButton fx:id="btnCancel" buttonType="RAISED" layoutX="464.0" layoutY="491.0" mnemonicParsing="false" onAction="#btnCancelClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconCancel.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
 
-        <Label fx:id="lblEventID" visible="false" layoutX="91.0" layoutY="184.0" />
+        <Label fx:id="lblEventID" layoutX="91.0" layoutY="184.0" visible="false" />
     </AnchorPane>
 </AnchorPane>

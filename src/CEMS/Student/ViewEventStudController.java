@@ -25,6 +25,7 @@ public class ViewEventStudController {
     public JFXButton btnSubmit;
     public ToggleGroup tgIsAttending;
     public Label lblEventID;
+    public Stage parentWindow;
 
     public void populateEventDetail(Event event){
         lblEventID.setText(String.valueOf(event.getEventID()));
@@ -74,13 +75,17 @@ public class ViewEventStudController {
     }
 
     public void goTOStudentMenuPage() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentMenu.fxml"));
-        Parent root = loader.load();
         Stage window = (Stage) btnSubmit.getScene().getWindow();
-        StudentMenuController controller = loader.getController();
-        controller.setWelcomeMsg(LoggedInUser.getUser().getName());
-        controller.setEventTable();
+        window.close();
 
-        Globals.WindowCloseAndShow(root, window, "CEMS - Student Portal");
+        if (parentWindow.getScene() != null && parentWindow.getScene().getRoot() != null) {
+            Parent root = parentWindow.getScene().getRoot();
+
+            FXMLLoader loader = (FXMLLoader) root.getProperties().get(FXMLLoader.class.getName());
+            if (loader != null) {
+                StudentMenuController controller = loader.getController();
+                controller.populateEventList();
+            }
+        }
     }
 }

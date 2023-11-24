@@ -78,18 +78,28 @@
       <ComboBox fx:id="ddlMemberClub" layoutX="416.0" layoutY="363.0" prefHeight="26.0" prefWidth="238.0" promptText="Select Club">
       </ComboBox>
 
-        <JFXButton fx:id="btnSaveClubMember" onAction="#btnSaveMemberClick" buttonType="RAISED" layoutX="442.0" layoutY="429.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
+        <JFXButton fx:id="btnSaveClubMember" buttonType="RAISED" layoutX="424.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnSaveMemberClick" prefHeight="45.0" prefWidth="118.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Save">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
             <effect>
                 <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconSave.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
-        <JFXButton fx:id="btnMemberCancel" onAction="#btnMemberCancelClick" buttonType="RAISED" layoutX="561.0" layoutY="429.0" mnemonicParsing="false" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
+        <JFXButton fx:id="btnMemberCancel" buttonType="RAISED" layoutX="561.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnMemberCancelClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconCancel.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
 
     </AnchorPane>

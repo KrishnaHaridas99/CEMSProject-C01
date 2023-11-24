@@ -24,10 +24,15 @@
                 <Font name="Comic Sans MS" size="35.0" />
             </font>
         </Label>
-        <JFXButton fx:id="btnStudentSignOut" buttonType="RAISED" layoutX="792.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnStudentSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
+        <JFXButton fx:id="btnStudentSignOut" buttonType="RAISED" contentDisplay="RIGHT" layoutX="770.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnStudentSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconSignOut.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
 
         <Label layoutX="76.0" layoutY="131.0" text="Upcoming Events">

@@ -77,11 +77,21 @@
             <effect>
                 <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <Image url="@../Images/IconSave.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
         <JFXButton fx:id="btnStudentCancel" buttonType="RAISED" layoutX="481.0" layoutY="408.0" mnemonicParsing="false" onAction="#btnStudentCancelClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <Image url="@../Images/IconCancel.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
     </AnchorPane>
 </AnchorPane>

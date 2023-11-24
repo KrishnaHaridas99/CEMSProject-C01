@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.effect.BoxBlur?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Admin.AdminSignInController">
@@ -64,18 +62,28 @@
                <Font name="Calibri" size="20.0" />
             </font>
         </PasswordField>
-        <JFXButton buttonType="RAISED" fx:id="btnAdminSignIn" ripplerFill="#858585" layoutX="416.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnAdminSignInClick" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Login">
+        <JFXButton fx:id="btnAdminSignIn" buttonType="RAISED" layoutX="385.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnAdminSignInClick" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Login">
             <font>
                <Font name="Calibri" size="20.0" />
             </font>
             <effect>
                <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconLogin.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
-        <JFXButton buttonType="RAISED" fx:id="btnAdminSignCancel" ripplerFill="#858585" layoutX="494.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnAdminSignCancelClick" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
+        <JFXButton fx:id="btnAdminSignCancel" buttonType="RAISED" layoutX="506.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnAdminSignCancelClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Cancel">
             <font>
                <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconCancel.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
     </AnchorPane>
 </AnchorPane>

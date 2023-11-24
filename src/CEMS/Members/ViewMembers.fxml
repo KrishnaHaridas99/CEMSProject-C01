@@ -24,10 +24,15 @@
                 <Font name="Comic Sans MS" size="33.0" />
             </font>
         </Label>
-        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="806.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnBackClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Back">
+        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnBackClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Back">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconBack.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
         <TableView fx:id="tblMembers" layoutX="43.0" layoutY="120.0" prefHeight="425.0" prefWidth="810.0" stylesheets="@../CSS/TableView.css">
         </TableView>

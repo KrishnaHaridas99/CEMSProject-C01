@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class AddEventExpenseController {
@@ -24,12 +23,7 @@ public class AddEventExpenseController {
 
     public void btnSaveExpenseClick(ActionEvent actionEvent) {
         try{
-            if(!isEdit){
-                saveEventBudget();
-            }
-            else {
-                updateEventBudget();
-            }
+            saveEventBudget();
         }
         catch (Exception e)
         {
@@ -48,42 +42,35 @@ public class AddEventExpenseController {
         eventBudget.setCost(Float.parseFloat(txtCost.getText()));
         eventBudget.setEventID(Integer.parseInt(lblEventID.getText()));
 
-        boolean isSaved = eventBudget.saveEventBudget(eventBudget);
+        boolean isSaved;
+        if(!isEdit){
+            isSaved = eventBudget.saveEventBudget(eventBudget);
+        }
+        else{
+            eventBudget.setBudgetID(Integer.parseInt(lblEventExpID.getText()));
+            isSaved = eventBudget.updateEventBudget(eventBudget);
+        }
+
         if (isSaved){
-            goToEventBudget(lblEventSelected.getText(), Integer.parseInt(lblEventID.getText()));
+            goToEventBudget();
         }
         else{
             Globals.ShowError("Error", "Error in saving Event budget");
         }
     }
 
-    public void updateEventBudget() throws Exception {
-        EventBudget eventBudget = new EventBudget();
-        eventBudget.setExpenseName(txtExpenseName.getText());
-        eventBudget.setCost(Float.parseFloat(txtCost.getText()));
-        eventBudget.setBudgetID(Integer.parseInt(lblEventExpID.getText()));
-        eventBudget.setEventID(Integer.parseInt(lblEventID.getText()));
-
-        boolean isSaved = eventBudget.updateEventBudget(eventBudget);
-        if (isSaved){
-            goToEventBudget(lblEventSelected.getText(), Integer.parseInt(lblEventID.getText()));
-        }
-        else{
-            Globals.ShowError("Error", "Error in saving Event budget");
-        }
-    }
-
-    public void goToEventBudget(String eventSelected, int EventID) throws SQLException, IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EventBudget.fxml"));
-        Parent root = loader.load();
+    public void goToEventBudget() throws SQLException {
         Stage window = (Stage) btnSaveExpense.getScene().getWindow();
         window.close();
 
-        EventBudgetController controller = loader.getController();
-        controller.setEventList();
-        controller.setSelectedEvent(eventSelected);
-        controller.setEventBudgetTable(EventID);
+        if (parentWindow.getScene() != null && parentWindow.getScene().getRoot() != null) {
+            Parent root = parentWindow.getScene().getRoot();
 
-        Globals.WindowCloseAndShow(root, parentWindow, "CEMS - Event Budget");
+            FXMLLoader loader = (FXMLLoader) root.getProperties().get(FXMLLoader.class.getName());
+            if (loader != null) {
+                EventBudgetController controller = loader.getController();
+                controller.populateEventBudgetTable();
+            }
+        }
     }
 }

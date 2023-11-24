@@ -7,6 +7,7 @@ import CEMS.WelcomePageController;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,6 +29,16 @@ public class StudentMenuController {
     public Label lblWelcome;
     public JFXButton btnStudentSignOut;
     public TableView tblEventList;
+
+    @FXML
+    private void initialize() {
+        try {
+            setEventTable();
+            populateEventList();
+        } catch (Exception e) {
+            Globals.ShowError("Error", e.getMessage());
+        }
+    }
 
     public void setWelcomeMsg(String str) {
         lblWelcome.setText(lblWelcome.getText() + str);
@@ -55,9 +66,13 @@ public class StudentMenuController {
         Globals.WindowCloseAndShow(root, window, "CEMS - Welcome");
     }
 
-    public void setEventTable() throws SQLException {
+    public void populateEventList() throws SQLException {
         List<Event> eventList = new Student().getStudentEventsList(LoggedInUser.getUser().getUserID());
+        tblEventList.getItems().clear();
+        tblEventList.getItems().addAll(eventList);
+    }
 
+    public void setEventTable() throws SQLException {
         TableColumn<Event, String> colEventID = new TableColumn<>("Event ID");
         colEventID.setCellValueFactory(new PropertyValueFactory<>("EventID"));
         tblEventList.getColumns().add(colEventID);
@@ -96,8 +111,6 @@ public class StudentMenuController {
         colAction.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         colAction.setCellFactory(getActionCellFactory());
         tblEventList.getColumns().add(colAction);
-
-        tblEventList.getItems().addAll(eventList);
     }
 
     private Callback<TableColumn<Event, Event>, TableCell<Event, Event>> getAttendingCellFactory() {
@@ -204,6 +217,7 @@ public class StudentMenuController {
         popupStage.setScene(new Scene(root));
 
         ViewEventStudController viewEventStudController = loader.getController();
+        viewEventStudController.parentWindow = (Stage) tblEventList.getScene().getWindow();
         viewEventStudController.populateEventDetail(eventObj);
 
         popupStage.showAndWait();

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Reports.ReportSearchEventsController">
+    <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="600.0" prefWidth="900.0">
+        <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="-1.0" opacity="0.56" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../Images/bgImg.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e7af61" height="365.0" layoutX="39.0" layoutY="227.0" opacity="0.48" stroke="#889e51fc" width="835.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect>
+        </Rectangle>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="155.0" layoutX="54.0" layoutY="56.0" opacity="0.48" stroke="#b29464" width="791.0">
+            <effect>
+                <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
+            </effect>
+        </Rectangle>
+        <Label layoutX="348.0" layoutY="2.0" text="Event Report">
+            <font>
+                <Font name="Comic Sans MS" size="33.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="5.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnBackClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Back">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconBack.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+
+        <Label layoutX="123.0" layoutY="67.0" text="Event Name: ">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtEventName" layoutX="249.0" layoutY="64.0" prefHeight="27.0" prefWidth="162.0" promptText="Event Name">
+            <font>
+                <Font name="Calibri" size="14.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="450.0" layoutY="67.0" text="Event Venue: ">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtEventVenue" layoutX="578.0" layoutY="64.0" prefHeight="27.0" prefWidth="162.0" promptText="Event Venue">
+            <font>
+                <Font name="Calibri" size="14.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="123.0" layoutY="112.0" text="Event Start Date: ">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtEventStart1" layoutX="267.0" layoutY="109.0" prefHeight="27.0" prefWidth="162.0" promptText="From Date" />
+        <Label layoutX="440.0" layoutY="130.0" prefHeight="36.0" prefWidth="18.0" text="-">
+            <font>
+                <Font name="Calibri" size="53.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtEventStart2" layoutX="470.0" layoutY="109.0" prefHeight="27.0" prefWidth="162.0" promptText="To Date" />
+
+        <Label layoutX="123.0" layoutY="151.0" text="Event End Date: ">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtEventEnd1" layoutX="267.0" layoutY="148.0" prefHeight="27.0" prefWidth="162.0" promptText="From Date" />
+        <Label layoutX="440.0" layoutY="91.0" prefHeight="22.0" prefWidth="18.0" text="-">
+            <font>
+                <Font name="Calibri" size="53.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtEventEnd2" layoutX="470.0" layoutY="148.0" prefHeight="27.0" prefWidth="162.0" promptText="To Date" />
+
+        <JFXButton fx:id="btnSearchEvent" buttonType="RAISED" layoutX="690.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnSearchEventClick" prefHeight="36.0" prefWidth="112.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Search">
+            <font>
+                <Font name="Calibri" size="20.0" />
+            </font>
+            <effect>
+                <Blend />
+            </effect>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconSearch.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+
+        <TableView fx:id="tblEvents" layoutX="54.0" layoutY="237.0" prefHeight="346.0" prefWidth="806.0" stylesheets="@../CSS/TableView.css">
+        </TableView>
+    </AnchorPane>
+</AnchorPane>

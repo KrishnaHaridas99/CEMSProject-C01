@@ -74,6 +74,10 @@ public class Event {
         this.EventCreatedDate = EventCreatedDate;
     }
 
+    private float EventTotalCost;
+    public float getEventTotalCost() { return this.EventTotalCost; }
+    public void setEventTotalCost(float TotalCost) { this.EventTotalCost = TotalCost; }
+
     private int StudentEventAttending;
     public int getStudentEventAttending() { return this.StudentEventAttending; }
     public void setStudentEventAttending(int StudentEventAttending){

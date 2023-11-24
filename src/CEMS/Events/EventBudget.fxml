@@ -50,18 +50,28 @@
             </font>
         </Label>
 
-        <JFXButton fx:id="btnAddExpense" buttonType="RAISED" layoutX="455.0" layoutY="147.0" mnemonicParsing="false" onAction="#btnAddExpenseClick" prefHeight="28.0" prefWidth="139.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Add expense" visible="false">
+        <JFXButton fx:id="btnAddExpense" buttonType="RAISED" layoutX="464.0" layoutY="143.0" mnemonicParsing="false" onAction="#btnAddExpenseClick" prefHeight="28.0" prefWidth="175.0" ripplerFill="#858585" styleClass="round-red" stylesheets="@../CSS/Button.css" text="Add expense" visible="false">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
             <effect>
                 <Blend />
             </effect>
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <Image url="@../Images/IconAdd.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
-        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="806.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnBackClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Back">
+        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnBackClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Back">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconBack.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
         <TableView fx:id="tblEventBudget" layoutX="78.0" layoutY="231.0" prefHeight="296.0" prefWidth="754.0" stylesheets="@../CSS/TableView.css">
         </TableView>

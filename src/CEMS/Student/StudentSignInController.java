@@ -53,10 +53,11 @@ public class StudentSignInController {
     public void goTOStudentMenuPage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentMenu.fxml"));
         Parent root = loader.load();
+        root.getProperties().put(FXMLLoader.class.getName(), loader);
+
         Stage window = (Stage) btnStudSignIn.getScene().getWindow();
         StudentMenuController controller = loader.getController();
         controller.setWelcomeMsg(LoggedInUser.getUser().getName());
-        controller.setEventTable();
 
         Globals.WindowCloseAndShow(root, window, "CEMS - Student Portal");
     }

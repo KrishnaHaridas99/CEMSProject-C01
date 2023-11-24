@@ -120,6 +120,11 @@
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconSubmit.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
     </AnchorPane>
 </AnchorPane>

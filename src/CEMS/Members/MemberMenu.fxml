@@ -24,10 +24,15 @@
                 <Font name="Comic Sans MS" size="35.0" />
             </font>
         </Label>
-        <JFXButton fx:id="btnMemberSignOut" buttonType="RAISED" layoutX="792.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnMemberSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
+        <JFXButton fx:id="btnMemberSignOut" buttonType="RAISED" contentDisplay="RIGHT" layoutX="754.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMemberSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0">
+                    <Image url="@../Images/IconSignOut.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
 
         <JFXButton fx:id="btnCreateEvent" buttonType="RAISED" layoutX="290.0" layoutY="173.0" onAction="#btnCreateEventClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Event">

@@ -24,10 +24,15 @@
                 <Font name="Comic Sans MS" size="35.0" />
             </font>
         </Label>
-        <JFXButton fx:id="btnAdminSignOut" buttonType="RAISED" layoutX="792.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnAdminSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
+        <JFXButton fx:id="btnAdminSignOut" buttonType="RAISED" contentDisplay="RIGHT" layoutX="754.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAdminSignOutClick" ripplerFill="#858585" styleClass="glass-grey" stylesheets="@../CSS/Button.css" text="Sign Out">
             <font>
                 <Font name="Calibri" size="20.0" />
             </font>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0">
+                    <Image url="@../Images/IconSignOut.png" />
+                </ImageView>
+            </graphic>
         </JFXButton>
 
         <JFXButton fx:id="btnCreateClub" buttonType="RAISED" layoutX="290.0" layoutY="151.0" onAction="#btnCreateClubClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Club">
@@ -39,7 +44,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnCreateClubMember" onAction="#btnCreateClubMemberClick" buttonType="RAISED" layoutX="290.0" layoutY="200.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Club Member">
+        <JFXButton fx:id="btnCreateClubMember" buttonType="RAISED" layoutX="290.0" layoutY="200.0" onAction="#btnCreateClubMemberClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Club Member">
             <font>
                 <Font size="15.0" />
             </font>
@@ -48,7 +53,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnCreateStudent" onAction="#btnCreateStudentClick" buttonType="RAISED" layoutX="290.0" layoutY="250.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Student">
+        <JFXButton fx:id="btnCreateStudent" buttonType="RAISED" layoutX="290.0" layoutY="250.0" onAction="#btnCreateStudentClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Create New Student">
             <font>
                 <Font size="15.0" />
             </font>
@@ -57,7 +62,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewClub" onAction="#btnViewClubClick" buttonType="RAISED" layoutX="290.0" layoutY="300.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club">
+        <JFXButton fx:id="btnViewClub" buttonType="RAISED" layoutX="290.0" layoutY="300.0" onAction="#btnViewClubClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club">
             <font>
                 <Font size="15.0" />
             </font>
@@ -66,7 +71,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewClubMember" onAction="#btnViewClubMemberClick" buttonType="RAISED" layoutX="290.0" layoutY="350.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club Member">
+        <JFXButton fx:id="btnViewClubMember" buttonType="RAISED" layoutX="290.0" layoutY="350.0" onAction="#btnViewClubMemberClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Club Member">
             <font>
                 <Font size="15.0" />
             </font>
@@ -75,7 +80,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnViewStudent" onAction="#btnViewStudentClick" buttonType="RAISED" layoutX="290.0" layoutY="401.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Students">
+        <JFXButton fx:id="btnViewStudent" buttonType="RAISED" layoutX="290.0" layoutY="401.0" onAction="#btnViewStudentClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="View or Update Students">
             <font>
                 <Font size="15.0" />
             </font>

@@ -5,9 +5,8 @@ import CEMS.Common.LoggedInUser;
 import CEMS.Members.MemberMenuController;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,12 +27,21 @@ import java.util.List;
 public class EventBudgetController {
     public ComboBox ddlEvent;
     public TableView tblEventBudget;
+
     public JFXButton btnBack;
     public JFXButton btnAddExpense;
     public Label lblTotal;
     public Label lblTotalCost;
 
-
+    @FXML
+    private void initialize() {
+        try {
+            setEventList();
+            setEventBudgetTable();
+        } catch (Exception e) {
+            Globals.ShowError("Error", e.getMessage());
+        }
+    }
 
     public void setEventList() throws SQLException {
         List<Event> eventList = new Event().getEventsList(LoggedInUser.getUser().getUserID());
@@ -43,12 +51,7 @@ public class EventBudgetController {
         }
     }
 
-    public void setEventBudgetTable(int EventID) throws SQLException {
-
-        ObservableList<EventBudget> eventList = FXCollections.observableArrayList();
-        for (EventBudget eventBudget: new EventBudget().getEventBudget(EventID)) {
-            eventList.add(eventBudget);
-        }
+    public void setEventBudgetTable() throws SQLException {
 
         TableColumn<EventBudget, String> colBudgetID = new TableColumn<>("Expense ID");
         colBudgetID.setCellValueFactory(new PropertyValueFactory<>("BudgetID"));
@@ -66,7 +69,27 @@ public class EventBudgetController {
         TableColumn<EventBudget, EventBudget> editDeleteColumn = new TableColumn<>("Actions");
         editDeleteColumn.setSortable(false);
         editDeleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        editDeleteColumn.setCellFactory(new Callback<TableColumn<EventBudget, EventBudget>, TableCell<EventBudget, EventBudget>>() {
+        editDeleteColumn.setCellFactory(getActionButtonCallback());
+        tblEventBudget.getColumns().add(editDeleteColumn);
+    }
+
+    public void populateEventBudgetTable() throws SQLException {
+        String eventSelected = ddlEvent.getValue().toString();
+        String[] eventParts = eventSelected.split("_");
+
+        List<EventBudget> eventBudgetList = new EventBudget().getEventBudget(Integer.parseInt(eventParts[0]));
+
+        tblEventBudget.getItems().clear();
+        tblEventBudget.getItems().addAll(eventBudgetList);
+
+        double sum = eventBudgetList.stream().mapToDouble(EventBudget::getCost).sum();
+        lblTotal.setVisible(true);
+        lblTotalCost.setText("$ " + String.format("%.2f", sum));
+        lblTotalCost.setVisible(true);
+    }
+
+    private Callback<TableColumn<EventBudget, EventBudget>, TableCell<EventBudget, EventBudget>> getActionButtonCallback() {
+        return new Callback<TableColumn<EventBudget, EventBudget>, TableCell<EventBudget, EventBudget>>() {
             @Override
             public TableCell<EventBudget, EventBudget> call(TableColumn<EventBudget, EventBudget> param) {
                 return new TableCell<EventBudget, EventBudget>() {
@@ -74,6 +97,7 @@ public class EventBudgetController {
                     final JFXButton deleteButton = new JFXButton();
                     final HBox buttonBox = new HBox(editButton, deleteButton);
                     final StackPane pane = new StackPane(buttonBox);
+
                     {
                         Image imgEdit = new Image(getClass().getResourceAsStream("../Images/IconEdit.png"));
                         ImageView iconEdit = new ImageView(imgEdit);
@@ -119,15 +143,7 @@ public class EventBudgetController {
                     }
                 };
             }
-        });
-        tblEventBudget.getColumns().add(editDeleteColumn);
-
-        tblEventBudget.getItems().addAll(eventList);
-
-        double sum = eventList.stream().mapToDouble(EventBudget::getCost).sum();
-        lblTotal.setVisible(true);
-        lblTotalCost.setText("$ " + String.format("%.2f", sum));
-        lblTotalCost.setVisible(true);
+        };
     }
 
     public void editEventExpense(EventBudget eventBudget){
@@ -151,11 +167,7 @@ public class EventBudgetController {
                 isDelete = new EventBudget().deleteEventExpense(eventBudget);
                 if (isDelete) {
                     Globals.ShowInfo("Deleted", "Expense Deleted Successfully");
-
-                    String eventSelected = ddlEvent.getValue().toString();
-                    String[] eventParts = eventSelected.split("_");
-
-                    goToEventBudget(eventSelected, Integer.parseInt(eventParts[0]));
+                    populateEventBudgetTable();
                 }
             } catch (Exception e) {
                 Globals.ShowError("Error", e.getMessage());
@@ -186,31 +198,12 @@ public class EventBudgetController {
 
     public void ddlEventChange(ActionEvent actionEvent) {
         try {
-            String eventSelected = ddlEvent.getValue().toString();
-            String[] eventParts = eventSelected.split("_");
-
-            goToEventBudget(eventSelected, Integer.parseInt(eventParts[0]));
+            btnAddExpense.setVisible(true);
+            populateEventBudgetTable();
         }
         catch (Exception e) {
             Globals.ShowError("Error", e.getMessage());
         }
-    }
-
-    public void goToEventBudget(String eventSelected, int EventID) throws IOException, SQLException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EventBudget.fxml"));
-        Parent root = loader.load();
-        Stage window = (Stage) ddlEvent.getScene().getWindow();
-        EventBudgetController controller = loader.getController();
-        controller.setEventList();
-        controller.setSelectedEvent(eventSelected);
-        controller.setEventBudgetTable(EventID);
-
-        Globals.WindowCloseAndShow(root, window, "CEMS - Event Budget");
-    }
-
-    public void setSelectedEvent(String eventSelected){
-        ddlEvent.setValue(eventSelected);
-        btnAddExpense.setVisible(true);
     }
 
     public void btnAddExpenseClick(ActionEvent actionEvent) {
