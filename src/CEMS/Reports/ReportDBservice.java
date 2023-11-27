@@ -49,4 +49,36 @@ public class ReportDBservice {
         }
         return eventList;
     }
+
+    public List<StudentReport> searchStudentAttendance(int memberID, int eventID, int isAttending) throws SQLException {
+        List<StudentReport> reportList = new ArrayList<>();
+
+        Connection conn = Globals.getConnection();
+        if (conn != null){
+            CallableStatement cStmt = null;
+            String query = "EXEC CEMS_SP_ReportSearchStudent ?,?,?";
+            cStmt = conn.prepareCall(query);
+            cStmt.setInt(1, memberID);
+            cStmt.setInt(2, eventID);
+            cStmt.setInt(3, isAttending);
+
+            ResultSet rs = cStmt.executeQuery();
+
+            StudentReport studentReport;
+            while (rs.next()) {
+                studentReport = new StudentReport();
+                studentReport.setFirstName(rs.getString("FirstName"));
+                studentReport.setLastName(rs.getString("LastName"));
+                studentReport.setEventName(rs.getString("EventName"));
+                studentReport.setUserEmail(rs.getString("Email"));
+                studentReport.setEventStartDate(rs.getString("EventStartDate"));
+                studentReport.setEventEndDate(rs.getString("EventEndDate"));
+                studentReport.setStudentEventAttending(rs.getInt("IsAttending"));
+                reportList.add(studentReport);
+            }
+            cStmt.close();
+            conn.close();
+        }
+        return reportList;
+    }
 }

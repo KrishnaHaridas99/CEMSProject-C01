@@ -7,14 +7,14 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="256.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Reports.ReportMenuController">
-    <AnchorPane layoutY="8.0" prefHeight="263.0" prefWidth="404.0">
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="271.0" layoutX="-3.0" layoutY="-6.0" opacity="0.48" stroke="#b29464" width="436.0">
+<AnchorPane prefHeight="223.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CEMS.Reports.ReportMenuController">
+    <AnchorPane layoutY="8.0" prefHeight="219.0" prefWidth="389.0">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fce7b0" height="224.0" layoutX="-3.0" layoutY="-6.0" opacity="0.48" stroke="#b29464" width="394.0">
             <effect>
                 <DropShadow height="0.0" offsetX="10.0" radius="12.3525" width="51.41" />
             </effect></Rectangle>
 
-        <JFXButton fx:id="btnSearchEvent" onAction="#btnSearchEventClick" buttonType="RAISED" layoutX="69.0" layoutY="76.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="List of Events">
+        <JFXButton fx:id="btnSearchEvent" buttonType="RAISED" layoutX="41.0" layoutY="69.0" onAction="#btnSearchEventClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="List of Events">
             <font>
                 <Font size="15.0" />
             </font>
@@ -23,7 +23,7 @@
             </effect>
         </JFXButton>
 
-        <JFXButton fx:id="btnSearchStudent" buttonType="RAISED" layoutX="69.0" layoutY="130.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Students Attending Event">
+        <JFXButton fx:id="btnSearchStudent" buttonType="RAISED" layoutX="41.0" layoutY="133.0" onAction="#btnSearchStudentClick" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Students Attending Event">
             <font>
                 <Font size="15.0" />
             </font>
@@ -31,16 +31,7 @@
                 <DropShadow />
             </effect>
         </JFXButton>
-
-        <JFXButton fx:id="btnSearchExpense" buttonType="RAISED" layoutX="69.0" layoutY="184.0" prefHeight="30.0" prefWidth="320.0" ripplerFill="#362b2b63" styleClass="shiny-orange" stylesheets="@../CSS/Button.css" text="Event Expenses">
-            <font>
-                <Font size="15.0" />
-            </font>
-            <effect>
-                <DropShadow />
-            </effect>
-        </JFXButton>
-        <Label layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="264.0" text="View report for:">
+        <Label layoutX="14.0" prefHeight="50.0" prefWidth="264.0" text="View report for:">
             <font>
                 <Font name="Comic Sans MS" size="24.0" />
             </font>

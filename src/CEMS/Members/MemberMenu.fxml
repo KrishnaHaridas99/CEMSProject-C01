@@ -70,7 +70,7 @@
                 <DropShadow />
             </effect>
         </JFXButton>
-      <Label fx:id="lblWelcome1" layoutX="464.0" layoutY="52.0" text="Member">
+      <Label fx:id="lblWelcome1" layoutX="464.0" layoutY="52.0">
          <font>
             <Font name="Comic Sans MS" size="35.0" />
          </font>

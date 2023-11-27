@@ -22,6 +22,13 @@ public class Globals {
         STUDENT;
     }
 
+    public enum AttendanceType{
+        ALL,
+        YES,
+        NO,
+        MAY_BE;
+    }
+
     public static String getDb_name() { return db_name; }
     public static void setDb_name(String db_name) {
         Globals.db_name = db_name;
